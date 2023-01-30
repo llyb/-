@@ -1,115 +1,115 @@
-//#include <iostream>
-//
-//using namespace std;
-//
-//// ³éÏóÀàµÄÊéÐ´ºÍ×÷ÓÃ
-//// Ç©ÊðºÏÍ¬ÄÇÃ´±ØÐëÊµÏÖÀïÃæµÄËùÓÐÄÚÈÝ
-//class AbstractEmployee // Ê¹ÓÃ³éÏóÀàÄ£Äâ½Ó¿Ú£¬½«¸´ÔÓµÄÂß¼­Òþ²ØÆðÀ´£¬Ö»ÁôÏÂ»ù±¾µÄ²Ù×÷º¯Êý
-//{
-//	virtual void AskForPromotion() = 0; // ´¿Ðéº¯Êý»òÕß½Ð³éÏóº¯Êý£¬Ç¿ÖÆÖ´ÐÐ
-//}; // Ïàµ±ÓÚÖÇÄÜÊÖ»úµÄ°´Å¥£¬ÎÒÃÇ²»ÓÃÈ¥¹ÜËüµÄÊµÏÖÓÐ¶àÃ´¸´ÔÓ£¬Ö»ÓÃÖªµÀËûµÄÀïÃæÓÐÕâÑùÒ»¸ö·½·¨¿ÉÒÔÈ¥µ÷ÓÃ¾ÍÐÐÁË
-//
-//class Employee : AbstractEmployee {
-// // ×ÓÀà²»»á¼Ì³Ð¸¸ÀàÖÐµÄ¹¹Ôìº¯Êý
-// // ×ÓÀàÒ»¶¨Òªµ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êý£¬µ±¸¸ÀàµÄ¹¹Ôìº¯ÊýÃ»ÓÐ²ÎÊýµÄÊ±ºò¿ÉÒÔ²»ÏÔÊ¾µ÷ÓÃ£¬µ±¸¸ÀàµÄ¹¹Ôìº¯ÊýÓÐ²ÎÊýµÄÊ±ºòÒ»¶¨ÒªÏÔÊ¾µ÷ÓÃ´«Èë²ÎÊý
-//public:
-//	string Company;
-//	int Age;
-//
-//protected:
-//	string Name;
-//
-//public:
-//	// Ã»ÓÐ·µ»ØÀàÐÍ
-//	// ¹¹Ôìº¯ÊýÃûºÍÀàÃûÏàÍ¬
-//	// public£¬·ñÔò½«ÎÞ·¨·ÃÎÊ
-//	// ¹¹Ôìº¯Êý»áÔÚ´´½¨¶ÔÏóµÄÊ±ºòÖ´ÐÐ£¬µ«Ö´ÐÐµÄÊÇÄÄÒ»¸öÈ¡¾öÓëº¯ÊýµÄ²ÎÊý
-//
-//	Employee(string name, string company, int age) { 
-//		Name = name;
-//		Company = company;
-//		Age = age;
-//	}
-//
-//	// ½«Ò»Ð©ÊôÐÔÉèÖÃÎªprivateÊÇÎªÁË·ÀÖ¹¶ñÒâ´Û¸Ä£¬ÎÒÃÇ¿ÉÒÔÔö¼ÓÒ»Ð©·½·¨À´¶ÔÐÞ¸ÄºÍ·ÃÎÊÔö¼ÓÒ»Ð©ÏÞÖÆ¼´¿É
-//	// Õâ¾ÍÊÇset ºÍ getµÄ×÷ÓÃ
-//	void setName(string name)
-//	{
-//		Name = name;
-//	}
-//	string getName()
-//	{
-//		return Name;
-//	}
-//	void AskForPromotion() { // ×ÓÀà±ØÐëÒªÊµÏÖ³éÏóÀàÖÐµÄ·½·¨
-//		if (Age > 20) {
-//			cout << Name << " " << "got promoted!" << endl;
-//		}
-//		else {
-//			cout << Name << "no promotion for you !" << endl;
-//		}
-//	}
-//
-//	// »ùÀàÖ¸ÕëÖ¸Ïò×ÓÀàµÄÊ±ºò»áÆðµ½×÷ÓÃ£¬ÆäÓàÊ±ºò»áÕý³£µ÷ÓÃ
-//	virtual void Work(){ // Ðéº¯Êý£¬ÔÚµ÷ÓÃ´Ëº¯ÊýÊ±»á¼ì²é×ÓÀàÖÐÊÇ·ñÓÐÏàÍ¬µÄº¯ÊýÊµÏÖ¹ý£¬Èç¹ûÓÐÄÇ¾ÍÖ´ÐÐÄÇ¸öº¯Êý
-//		cout << Name << " " << "is checking email, task backlog, performing tassks" << endl;
-//	}
-//};
-//
-//// ¼Ì³ÐÄ¬ÈÏÎªË½ÓÐ¼Ì³Ð£¬ ÇÒÕâÀïÃ»ÓÐÖ±½ÓÇ©¶©³éÏóÀàµÄºÏÍ¬£¬²»ÓÃÖØÐÂÊµÏÖ
-//class Developer : public Employee {
-//public:
-//	string FavProgramingLanguage;
-//
-//	Developer(string name, string company, int age, string favProgramingLanguage) 
-//		: Employee(name, company, age) // ÒòÎª¸¸ÀàµÄ¹¹Ôìº¯ÊýÓÐ²ÎÊýËùÒÔÒªÏÔÊ½µ÷ÓÃ¸¸ÀàµÄ¹¹Ôìº¯Êý
-//	{
-//		FavProgramingLanguage = favProgramingLanguage;
-//	}
-//	void FixBug() {
-//		cout << Name << "fixed bug using " << FavProgramingLanguage << endl;
-//	}
-//
-//	void Work(){
-//		cout << Name << " " << "is writing " << FavProgramingLanguage << " code" << endl;
-//	}
-//};
-//
-//class Teacher : public Employee{
-//public:
-//	string Subject;
-//	void PrepareLesson() {
-//		cout << Name << " is preparing" << Subject << " lesson" << endl;
-//	}
-//	Teacher(string name, string company, int age, string subject) : Employee(name, company, age)
-//	{
-//		Subject = subject;
-//	}
-//	void Work(){
-//		cout << Name << " " << " is teaching" << Subject << endl;
-//	}
-// };
-//
-//int main()
-//{
-//	Employee employee1 = Employee("lyb", "xxx", 25);
-//
-//	employee1.AskForPromotion();
-//
-//	Developer d = Developer("lyb", "xxx", 30, "c++");
-//	d.FixBug();
-//
-//	Teacher t = Teacher("Jack", "Coll School", 35, "History");
-//
-//	d.Work();
-//	t.Work();
-//
-//	// ¶àÌ¬ÐÔ
-//	Employee* e1 = &d;
-//	Employee* e2 = &t;
-//	
-//	e1->Work();
-//	e2->Work();
-//
-//	return 0;
-//}
+#include <iostream>
+
+using namespace std;
+
+// æŠ½è±¡ç±»çš„ä¹¦å†™å’Œä½œç”¨
+// ç­¾ç½²åˆåŒé‚£ä¹ˆå¿…é¡»å®žçŽ°é‡Œé¢çš„æ‰€æœ‰å†…å®¹
+class AbstractEmployee // ä½¿ç”¨æŠ½è±¡ç±»æ¨¡æ‹ŸæŽ¥å£ï¼Œå°†å¤æ‚çš„é€»è¾‘éšè—èµ·æ¥ï¼Œåªç•™ä¸‹åŸºæœ¬çš„æ“ä½œå‡½æ•°
+{
+	virtual void AskForPromotion() = 0; // çº¯è™šå‡½æ•°æˆ–è€…å«æŠ½è±¡å‡½æ•°ï¼Œå¼ºåˆ¶æ‰§è¡Œ
+}; // ç›¸å½“äºŽæ™ºèƒ½æ‰‹æœºçš„æŒ‰é’®ï¼Œæˆ‘ä»¬ä¸ç”¨åŽ»ç®¡å®ƒçš„å®žçŽ°æœ‰å¤šä¹ˆå¤æ‚ï¼Œåªç”¨çŸ¥é“ä»–çš„é‡Œé¢æœ‰è¿™æ ·ä¸€ä¸ªæ–¹æ³•å¯ä»¥åŽ»è°ƒç”¨å°±è¡Œäº†
+
+class Employee : AbstractEmployee {
+// å­ç±»ä¸ä¼šç»§æ‰¿çˆ¶ç±»ä¸­çš„æž„é€ å‡½æ•°
+// å­ç±»ä¸€å®šè¦è°ƒç”¨çˆ¶ç±»çš„æž„é€ å‡½æ•°ï¼Œå½“çˆ¶ç±»çš„æž„é€ å‡½æ•°æ²¡æœ‰å‚æ•°çš„æ—¶å€™å¯ä»¥ä¸æ˜¾ç¤ºè°ƒç”¨ï¼Œå½“çˆ¶ç±»çš„æž„é€ å‡½æ•°æœ‰å‚æ•°çš„æ—¶å€™ä¸€å®šè¦æ˜¾ç¤ºè°ƒç”¨ä¼ å…¥å‚æ•°
+public:
+	string Company;
+	int Age;
+
+protected:
+	string Name;
+
+public:
+	// æ²¡æœ‰è¿”å›žç±»åž‹
+	// æž„é€ å‡½æ•°åå’Œç±»åç›¸åŒ
+	// publicï¼Œå¦åˆ™å°†æ— æ³•è®¿é—®
+	// æž„é€ å‡½æ•°ä¼šåœ¨åˆ›å»ºå¯¹è±¡çš„æ—¶å€™æ‰§è¡Œï¼Œä½†æ‰§è¡Œçš„æ˜¯å“ªä¸€ä¸ªå–å†³ä¸Žå‡½æ•°çš„å‚æ•°
+
+	Employee(string name, string company, int age) { 
+		Name = name;
+		Company = company;
+		Age = age;
+	}
+
+	// å°†ä¸€äº›å±žæ€§è®¾ç½®ä¸ºprivateæ˜¯ä¸ºäº†é˜²æ­¢æ¶æ„ç¯¡æ”¹ï¼Œæˆ‘ä»¬å¯ä»¥å¢žåŠ ä¸€äº›æ–¹æ³•æ¥å¯¹ä¿®æ”¹å’Œè®¿é—®å¢žåŠ ä¸€äº›é™åˆ¶å³å¯
+	// è¿™å°±æ˜¯set å’Œ getçš„ä½œç”¨
+	void setName(string name)
+	{
+		Name = name;
+	}
+	string getName()
+	{
+		return Name;
+	}
+	void AskForPromotion() { // å­ç±»å¿…é¡»è¦å®žçŽ°æŠ½è±¡ç±»ä¸­çš„æ–¹æ³•
+		if (Age > 20) {
+			cout << Name << " " << "got promoted!" << endl;
+		}
+		else {
+			cout << Name << "no promotion for you !" << endl;
+		}
+	}
+
+	// åŸºç±»æŒ‡é’ˆæŒ‡å‘å­ç±»çš„æ—¶å€™ä¼šèµ·åˆ°ä½œç”¨ï¼Œå…¶ä½™æ—¶å€™ä¼šæ­£å¸¸è°ƒç”¨
+	virtual void Work(){ // è™šå‡½æ•°ï¼Œåœ¨è°ƒç”¨æ­¤å‡½æ•°æ—¶ä¼šæ£€æŸ¥å­ç±»ä¸­æ˜¯å¦æœ‰ç›¸åŒçš„å‡½æ•°å®žçŽ°è¿‡ï¼Œå¦‚æžœæœ‰é‚£å°±æ‰§è¡Œé‚£ä¸ªå‡½æ•°
+		cout << Name << " " << "is checking email, task backlog, performing tassks" << endl;
+	}
+};
+
+// ç»§æ‰¿é»˜è®¤ä¸ºç§æœ‰ç»§æ‰¿ï¼Œ ä¸”è¿™é‡Œæ²¡æœ‰ç›´æŽ¥ç­¾è®¢æŠ½è±¡ç±»çš„åˆåŒï¼Œä¸ç”¨é‡æ–°å®žçŽ°
+class Developer : public Employee {
+public:
+	string FavProgramingLanguage;
+
+	Developer(string name, string company, int age, string favProgramingLanguage) 
+		: Employee(name, company, age) // å› ä¸ºçˆ¶ç±»çš„æž„é€ å‡½æ•°æœ‰å‚æ•°æ‰€ä»¥è¦æ˜¾å¼è°ƒç”¨çˆ¶ç±»çš„æž„é€ å‡½æ•°
+	{
+		FavProgramingLanguage = favProgramingLanguage;
+	}
+	void FixBug() {
+		cout << Name << "fixed bug using " << FavProgramingLanguage << endl;
+	}
+
+	void Work(){
+		cout << Name << " " << "is writing " << FavProgramingLanguage << " code" << endl;
+	}
+};
+
+class Teacher : public Employee{
+public:
+	string Subject;
+	void PrepareLesson() {
+		cout << Name << " is preparing" << Subject << " lesson" << endl;
+	}
+	Teacher(string name, string company, int age, string subject) : Employee(name, company, age)
+	{
+		Subject = subject;
+	}
+	void Work(){
+		cout << Name << " " << " is teaching" << Subject << endl;
+	}
+};
+
+int main()
+{
+	Employee employee1 = Employee("lyb", "xxx", 25);
+
+	employee1.AskForPromotion();
+
+	Developer d = Developer("lyb", "xxx", 30, "c++");
+	d.FixBug();
+
+	Teacher t = Teacher("Jack", "Coll School", 35, "History");
+
+	d.Work();
+	t.Work();
+
+	// å¤šæ€æ€§
+	Employee* e1 = &d;
+	Employee* e2 = &t;
+	
+	e1->Work();
+	e2->Work();
+
+	return 0;
+}
